@@ -1,0 +1,77 @@
+{
+  "author": "Isaac Roldán @isaacroldan",
+  "bin": {
+    "mynewcli": "./bin/run.js"
+  },
+  "dependencies": {
+    "@oclif/core": "^3.19.5-dev.0",
+    "@oclif/plugin-commands": "^3.1.6",
+    "@oclif/plugin-help": "^6",
+    "@oclif/plugin-plugins": "^4"
+  },
+  "description": "oclif example Hello World CLI (ESM)",
+  "devDependencies": {
+    "@oclif/prettier-config": "^0.2.1",
+    "@oclif/test": "^3",
+    "@types/chai": "^4",
+    "@types/mocha": "^10",
+    "@types/node": "^18",
+    "chai": "^4",
+    "esbuild": "0.20.1",
+    "eslint": "^8",
+    "eslint-config-oclif": "^5",
+    "eslint-config-oclif-typescript": "^3",
+    "eslint-config-prettier": "^9.1.0",
+    "mocha": "^10",
+    "oclif": "^4.4.12",
+    "shx": "^0.3.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/isaacroldan/mynewcli",
+  "license": "MIT",
+  "main": "",
+  "name": "mynewcli",
+  "oclif": {
+    "bin": "mynewcli",
+    "dirname": "mynewcli",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "hello": {
+        "description": "Say hello to the world and others"
+      }
+    }
+  },
+  "repository": "isaacroldan/mynewcli",
+  "scripts": {
+    "build": "shx rm -rf dist && node bin/bundle.js",
+    "lint": "eslint . --ext .ts",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "npm run lint",
+    "prepack": "npm run build && oclif manifest && oclif readme",
+    "prepare": "npm run build",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
+  },
+  "version": "0.0.0",
+  "bugs": "https://github.com/isaacroldan/mynewcli/issues",
+  "keywords": [
+    "oclif"
+  ],
+  "types": "dist/index.d.ts",
+  "exports": "./lib/index.js",
+  "type": "module"
+}
