@@ -1,5 +1,4 @@
 import {Args, Command, Flags} from '@oclif/core'
-
 export default class Hello extends Command {
   static args = {
     person: Args.string({description: 'Person to say hello to', required: true}),
@@ -22,12 +21,4 @@ hello friend from oclif! (./src/commands/hello/index.ts)
 
     this.log(`hello ${args.person} from ${flags.from}! (./src/commands/hello/index.ts)`)
   }
-}
-
-function neverCalled2() {
-  import('@oclif/plugin-help').catch(() => {});
-}
-
-function neverCalled1() {
-  import('@oclif/plugin-commands').catch(() => {});
 }

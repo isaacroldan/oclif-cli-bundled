@@ -3,12 +3,13 @@ import {build as esBuild} from 'esbuild'
 await esBuild({
   bundle: true,
   entryPoints: ['./src/**/*.ts'],
-  outdir: './dist/cli',
-  platform: 'node',
-  format: 'esm',
+  outdir: './dist',
   external: [],
+  format: 'esm',
+  platform: 'node',
   loader: {'.node': 'copy'},
-  splitting: true,
   plugins: [],
+  splitting: true,
+  inject: ['./bin/cjs-shims.js'],
   treeShaking: false,
 })

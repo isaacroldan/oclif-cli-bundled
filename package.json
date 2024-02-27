@@ -4,7 +4,7 @@
     "mynewcli": "./bin/run.js"
   },
   "dependencies": {
-    "@oclif/core": "^3.19.5-dev.0",
+    "@oclif/core": "3.19.5-dev.0",
     "@oclif/plugin-commands": "^3.1.6",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^4"
@@ -23,7 +23,7 @@
     "eslint-config-oclif-typescript": "^3",
     "eslint-config-prettier": "^9.1.0",
     "mocha": "^10",
-    "oclif": "^4.4.12",
+    "oclif": "^4.4.13-dev.1",
     "shx": "^0.3.4",
     "ts-node": "^10.9.2",
     "typescript": "^5"
@@ -45,8 +45,7 @@
     "dirname": "mynewcli",
     "commands": "./dist/commands",
     "plugins": [
-      "@oclif/plugin-help",
-      "@oclif/plugin-plugins"
+      "@oclif/plugin-commands"
     ],
     "topicSeparator": " ",
     "topics": {
@@ -73,5 +72,8 @@
   ],
   "types": "dist/index.d.ts",
   "exports": "./lib/index.js",
-  "type": "module"
+  "type": "module",
+  "overrides": {
+    "@oclif/core": "3.19.5-dev.0"
+  }
 }
